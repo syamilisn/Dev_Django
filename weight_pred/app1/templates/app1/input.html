@@ -1,0 +1,49 @@
+<html>
+<head><style>
+    form{
+        background-color:white;
+    }
+    pre{
+        background-color:black;
+    }
+</style></head>
+<body>
+{% extends "app1/base.html" %}
+{% block content %}
+<div class="container">
+<form method="post" action="{% url 'app1:input' %}">
+    {% csrf_token %}
+
+    <fieldset>
+        <legend>ADD BODY MEASUREMENTS</legend>
+        <pre>
+            <label>Weight:</label> <input type="number" name="weight" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Waist :</label> <input type="number" name="waist" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Hip   :</label> <input type="number" name="hip" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Bust  :</label> <input type="number" name="bust" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Arms  :</label> <input type="number" name="arms" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Thigh:</label> <input type="number" name="thigh" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Bottom:</label> <input type="number" name="bottom" step="0.1"/>
+        </pre>
+        <pre>
+            <label>Date  :</label> <input type="date" name="date"/>
+        </pre>
+        
+        <button name = "submit"> Add </button>
+    </fieldset>
+</form>
+</div>
+{% endblock content %}
+</body>

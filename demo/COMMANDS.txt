@@ -1,0 +1,19 @@
+//admin 1234
+echo demo project" >> README.md
+python -m venv bubble
+bubble\Scripts\activate
+pip install django
+django-admin startproject demo .
+python manage.py migrate
+python manage.py runserver
+
+bubble\Scripts\activate
+python manage.py runserver
+
+python manage.py createsuperuser
+
+python manage.py startapp app1
+
+python manage.py migrate
+python manage.py makemigrations app1
+

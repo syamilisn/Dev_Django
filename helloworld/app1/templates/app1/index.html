@@ -1,0 +1,18 @@
+<html>
+    <head><title>index page</title></head>
+    <body>
+        <script>
+            document.write("Hello World JS!!")
+        </script>
+        <ul>
+            {% for intro in intros %}
+                <li>{{ intro }}</li>
+                <a href ="{% url 'app1:edit' intro.id %}">Edit intro</a>
+            {% empty %}
+                <li>No intros have been added yet.</li>
+            {% endfor %}
+        </ul>
+        <a href ="{% url 'app1:input' %}">Add new intro</a>       
+
+    </body>
+</html>

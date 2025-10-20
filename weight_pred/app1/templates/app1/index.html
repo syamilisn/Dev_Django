@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Home page</title>
+        <style>
+            
+            table,th,td{
+                border:solid 1pt black;
+                border-collapse:collapse;
+                padding:10pt;
+                text-align:center;
+                word-wrap: break-word;
+            }
+        </style>
+    </head>
+    <body>
+        {% extends "app1/base.html" %}
+        {% block content %}
+        <p>
+            Weight Prediction home page.
+        </p>
+        <ul>
+            {% for measure in measures %}
+                <li>{{measure.date}} : {{ measure.weight }}</li>
+            {% empty %}
+                <li>No measurements have been added yet.</li>
+            {% endfor %}
+        </ul>
+
+        <a href ="{% url 'app1:input' %}">Add new measurement.</a>
+        <a href ="{% url 'app1:export' %}">Export</a>
+        <table>
+            <tr><th>Date</th><th>Weight</th></tr>
+            {% for measure in measures %}
+                <tr><td>{{measure.date}}</td><td>{{ measure.weight }}</td></tr>
+            {% endfor %}
+        </table>
+        {% endblock content %}
+    </body>
+</html>

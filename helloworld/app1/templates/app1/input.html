@@ -1,0 +1,6 @@
+<p>Add new intro</p>
+<form action = "{% url 'app1:input' %}" method = 'post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name = "submit">Add Intro</button>
+</form>

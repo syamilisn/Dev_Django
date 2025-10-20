@@ -1,0 +1,6 @@
+<p>Edit entry:</p>
+<form action = "{% url 'app1:edit' intro.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name = "submit">Save Changes</button>
+</form>

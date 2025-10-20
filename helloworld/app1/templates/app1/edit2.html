@@ -1,0 +1,13 @@
+{% for intro in intros %}
+    <li>
+        <a href ="{% url 'app1:index' intro.id %}">{{ intro }}</a>
+    </li>
+
+
+    <h2>Edit entry:</h2>
+    <form action = "{% url 'app1: edit' intro.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name = "submit">Save Changes</button>
+    </form>
+{% endfor %}

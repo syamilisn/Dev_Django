@@ -1,0 +1,10 @@
+[workspace]
+restore_data_on_startup = True
+save_data_on_exit = True
+save_history = True
+save_non_project_files = False
+
+[main]
+version = 0.2.0
+recent_files = ['users\\__init__.py', 'users\\admin.py', 'users\\apps.py', 'users\\models.py', 'users\\tests.py', 'users\\urls.py', 'users\\views.py', 'users\\templates\\registration\\logged_out.html', 'users\\templates\\registration\\login.html', 'users\\templates\\registration\\register.html']
+

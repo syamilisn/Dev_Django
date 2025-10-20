@@ -1,0 +1,27 @@
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: orange;
+}
+
+em {
+    color: blue;
+}
+
+p {
+    margin: 5px 0 10px 0;
+    font-weight: bold;
+    font-family: Times, Arial, Helvetica, sans-serif;
+}
+
+table,th,td{
+    border:solid 1pt black;
+    border-collapse:collapse;
+    padding:10pt;
+    text-align:center;
+    word-wrap: break-word;
+}

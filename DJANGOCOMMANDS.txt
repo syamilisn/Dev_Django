@@ -1,0 +1,15 @@
+//vs code integrated cmd prompt terminal (ctrl + ~)
+// admin 1234
+mkdir hello
+cd hello
+echo "#hello project" >> README.md
+python -m venv bubble
+bubble\Scripts\activate
+pip install django
+django-admin startproject hello .
+python manage.py migrate
+python manage.py runserver
+python manage.py createsuperuser
+python manage.py startapp app1
+python manage.py makemigrations app1
+

@@ -1,0 +1,96 @@
+<!--
+<p>
+    <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}.
+        <a href="{% url 'users:logout' %}">Log out</a>
+    {% else %}
+        <a href="{% url 'users:register' %}">Register</a> -
+        <a href="{% url 'users:login' %}">Log in</a>
+    {% endif %}
+</p>
+{% block contentt %}{% endblock contentt %}
+-->
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Learning Log</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+<body>
+    <!--
+    
+    navbar: Selector
+    navbar: Navigation bar theme -light
+    bg: navbar background theme -light
+    mb: margin bottom [Space b/w the navigation bar and the rest of the page]
+    border: provides a border around the light background to set it off a little from the rest of the page
+    -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+        <!--
+        Project name appears at far left of navbar which links to home page, 
+            ON EVERY PAGE
+        navbar-brand: styles this link so it stands out from the rest of the 
+            links and is a way of branding the site
+        -->
+        <a class="navbar-brand" href="{% url 'learning_logs:index'%}">Learning Log</a>
+        <!--
+        template defines a button that appears if the browser window is too narrow 
+            to display the whole navigation bar horizontally. It helps the user by 
+            displaying the nav. elements in dropdown list
+        collapse: to collapse the navbar when page is closed and when site is 
+            displayed on mobiles
+        -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span></button>
+        <!--
+        Defining the Navigation bar
+        The links to be displayed on bar are provided as below
+        div: define entire sections
+        span: For elements that span longer
+        -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'learning_logs:topics'%}">
+                        Topics</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text"}">Hello, {{ user.username }}.</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:login' %}">Log in</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!--
+    The main element is used for the most significant part of the body of a page
+    Here we assign the bootstrap selector container, which is a simple way to group elements on a page.
+    -->
+    <main role="main" class="container">
+        <div class="pb-2 mb-2 border-bottom">
+            {% block page_header %}{% endblock page_header %}
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
+    </main>
+</body>
+</html>
